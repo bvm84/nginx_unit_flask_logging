@@ -5,15 +5,17 @@ Purpose: to see python hosted behind unit with docker logs command.
 Steps to reproduce
 
 Pure python startup:
-docker build -t python_logging:latest -f python.Dockerfile
-docker run --name=python_logging_test -e=PYTHONUNBUFFERED=0-d -p 8080:8080 python_logging:latest
+docker build -f python.Dockerfile -t python_logging:latest .
+docker run --name=python_logging_test -e=PYTHONUNBUFFERED=0 -d -p 8080:8080 python_logging:latest
+sudo chmod +x ./tests/api_curl.sh
 ./tests/api_curl.sh
 docker stop python_logging_test
 
 
 Unit with python module startup:
-docker build -t unit_python_logging:latest -f unit.Dockerfile
-docker run --name=unit_logging_test -e=PYTHONUNBUFFERED=0-d -p 8080:8080 unit_python_logging:latest
+docker build -f unit.Dockerfile -t unit_python_logging:latest .
+docker run --name=unit_logging_test -e=PYTHONUNBUFFERED=0 -d -p 8080:8080 unit_python_logging:latest
+sudo chmod +x ./tests/api_curl.sh
 ./tests/api_curl.sh
 docker stop unit_python_logging
 

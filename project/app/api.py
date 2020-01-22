@@ -8,13 +8,15 @@ api = Api()
 class Test1(Resource):
     @staticmethod
     def get():
-        print('test1')
+        current_app.logger.info('Test1 logger message')
+        print('Test1 print message')
         return {'api_test1': 'sucess'}
 
 class Test2(Resource):
     @staticmethod
     def get():
-        print('test2')
+        current_app.logger.info('Test2 logger message')
+        print('Test2 print message')
         return {'api_test2': 'sucess'}
 
 

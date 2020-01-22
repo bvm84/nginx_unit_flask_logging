@@ -16,7 +16,6 @@ EXPOSE 8080
 RUN chgrp -R unit /project
 RUN chown -R unit /project
 RUN chmod -R g+rwx /project
-RUN chmod +x /project/app/bp_estimate/ppgl2/PPG_L2
 # RUN ln -sf /dev/stdout /var/log/unit.log
 # RUN ln -sf /dev/stdout /project/app/log/sklearn_bp_docker.log
 RUN chmod +x /unit_files/entrypoint.sh
